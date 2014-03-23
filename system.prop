@@ -135,3 +135,6 @@ ro.fm.transmitter=false
 
 #enable dsp gapless mode by default
 audio.offload.gapless.enabled=true
+
+# System prop for Atlas service
+config.disable_atlas=true
