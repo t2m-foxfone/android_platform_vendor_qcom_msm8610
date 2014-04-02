@@ -138,3 +138,6 @@ audio.offload.gapless.enabled=true
 
 # System prop for Atlas service
 config.disable_atlas=true
+
+#additional max allowed background services on bootup
+persist.added_boot_bgservices=4
