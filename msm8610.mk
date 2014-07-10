@@ -23,8 +23,6 @@ $(call inherit-product, device/qcom/common/common.mk)
 PRODUCT_NAME := msm8610
 PRODUCT_DEVICE := msm8610
 
-PRODUCT_BOOT_JARS += qcmediaplayer:oem-services:qcom.fmradio:org.codeaurora.Performance:vcard
-
 # Audio configuration file
 PRODUCT_COPY_FILES += \
     device/qcom/msm8610/audio_policy.conf:system/etc/audio_policy.conf \
@@ -107,4 +105,10 @@ PRODUCT_COPY_FILES += \
         frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml \
         frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
         frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml
+
+# Enable NFC Forum testing by temporarily changing the PRODUCT_BOOT_JARS
+# line has to be in sync with build/target/product/core_base.mk
+PRODUCT_BOOT_JARS := core:conscrypt:okhttp:core-junit:bouncycastle:ext:com.android.nfc.helper:framework:framework2:telephony-common:voip-common:mms-common:android.policy:services:apache-xml:webviewchromium:telephony-msim
+
 endif # BOARD_HAVE_QCA_NFC
+PRODUCT_BOOT_JARS += qcmediaplayer:oem-services:qcom.fmradio:org.codeaurora.Performance:vcard
