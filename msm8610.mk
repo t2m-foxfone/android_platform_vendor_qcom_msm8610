@@ -1,5 +1,5 @@
-TARGET_USES_QCOM_BSP := true
-TARGET_USES_QCA_NFC := true
+TARGET_USES_QCOM_BSP := false
+TARGET_USES_QCA_NFC := false
 
 ifeq ($(TARGET_USES_QCOM_BSP), true)
 # Add QC Video Enhancements flag
@@ -35,7 +35,7 @@ PRODUCT_PACKAGES += \
     libqcompostprocbundle
 
 # Bluetooth configuration files
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     system/bluetooth/data/main.le.conf:system/etc/bluetooth/main.conf
 
 #fstab.qcom
@@ -103,18 +103,17 @@ endif
 # Commands to migrate prefs from com.android.nfc3 to com.android.nfc
 # NFC access control + feature files + configuration
 PRODUCT_COPY_FILES += \
-        packages/apps/Nfc/migrate_nfc.txt:system/etc/updatecmds/migrate_nfc.txt \
         frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml \
         frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
         frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml
 
 # Enable NFC Forum testing by temporarily changing the PRODUCT_BOOT_JARS
 # line has to be in sync with build/target/product/core_base.mk
-PRODUCT_BOOT_JARS := core:conscrypt:okhttp:core-junit:bouncycastle:ext:com.android.nfc.helper:framework:framework2:telephony-common:voip-common:mms-common:android.policy:services:apache-xml:webviewchromium:telephony-msim
+#PRODUCT_BOOT_JARS := core:conscrypt:okhttp:core-junit:bouncycastle:ext:com.android.nfc.helper:framework:framework2:telephony-common:voip-common:mms-common:android.policy:services:apache-xml:webviewchromium:telephony-msim
 
 ifeq ($(NFC_D), true)
-PRODUCT_BOOT_JARS += org.simalliance.openmobileapi:com.android.qcom.nfc_extras:com.gsma.services.nfc
+#PRODUCT_BOOT_JARS += org.simalliance.openmobileapi:com.android.qcom.nfc_extras:com.gsma.services.nfc
 endif
 
 endif # BOARD_HAVE_QCA_NFC
-PRODUCT_BOOT_JARS += qcmediaplayer:oem-services:qcom.fmradio:org.codeaurora.Performance:vcard
+#PRODUCT_BOOT_JARS += qcmediaplayer:oem-services:qcom.fmradio:org.codeaurora.Performance:vcard
