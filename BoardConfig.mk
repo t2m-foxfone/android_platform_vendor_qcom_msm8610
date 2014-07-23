@@ -104,6 +104,6 @@ BOARD_SEPOLICY_UNION := \
 
 TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_msm
 
-PRODUCT_BOOT_JARS := $(subst $(space),:,$(PRODUCT_BOOT_JARS))
+#PRODUCT_BOOT_JARS := $(subst $(space),:,$(PRODUCT_BOOT_JARS))
 
 TARGET_RECOVERY_UI_LIB := librecovery_ui_qcom
