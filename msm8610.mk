@@ -116,5 +116,8 @@ ifeq ($(NFC_D), true)
 endif
 
 endif # BOARD_HAVE_QCA_NFC
-#PRODUCT_BOOT_JARS += qcmediaplayer:oem-services:qcom.fmradio:org.codeaurora.Performance:vcard
-PRODUCT_BOOT_JARS += qcom.fmradio
+PRODUCT_BOOT_JARS += qcmediaplayer \
+                     oem-services \
+                     qcom.fmradio \
+                     org.codeaurora.Performance \
+                     vcard
