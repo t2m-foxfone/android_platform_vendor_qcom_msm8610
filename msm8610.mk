@@ -122,4 +122,5 @@ PRODUCT_BOOT_JARS += qcmediaplayer \
                      oem-services \
                      qcom.fmradio \
                      org.codeaurora.Performance \
-                     vcard
+                     vcard \
+                     tcmiface
