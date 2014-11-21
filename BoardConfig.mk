@@ -82,7 +82,6 @@ BOARD_CHARGER_ENABLE_SUSPEND := true
 
 # Add NON-HLOS files for ota upgrade
 ADD_RADIO_FILES ?= true
-TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
 TARGET_USES_INTERACTION_BOOST := false
 
 # Added to indicate that protobuf-c is supported in this build
