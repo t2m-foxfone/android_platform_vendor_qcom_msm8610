@@ -146,4 +146,4 @@ config.disable_atlas=true
 persist.added_boot_bgservices=4
 
 #property to set minimum frequency as 787Mhz by default
-ro.min_freq_0=787000
+ro.min_freq_0=787200
