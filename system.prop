@@ -108,6 +108,10 @@ ro.qualcomm.cabl=1
 ro.nfc.port=I2C
 
 #
+#System property for swap rect
+#
+debug.sf.swaprect=1
+
 #DASH video streaming
 #Specify max allowed resolution/bandwidth for representations
 #Set allowed avsync window during playback
