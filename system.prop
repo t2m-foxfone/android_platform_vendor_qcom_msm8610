@@ -112,6 +112,11 @@ ro.nfc.port=I2C
 #
 debug.sf.swaprect=1
 
+#
+#System property for ABC
+#
+debug.sf.hwc.canUseABC=1
+
 #DASH video streaming
 #Specify max allowed resolution/bandwidth for representations
 #Set allowed avsync window during playback
