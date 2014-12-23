@@ -33,10 +33,10 @@ on early-init
     write /sys/kernel/mm/ksm/pages_to_scan 100
     write /sys/kernel/mm/ksm/sleep_millisecs 500
     write /sys/kernel/mm/ksm/run 1
-    write /sys/block/zram0/disksize 512M
 
 on fs
     mount_all fstab.qcom
+    swapon_all fstab.qcom
 
     # Keeping following partitions outside fstab file. As user may not have
     # these partition flashed on the device. Failure to mount any partition in fstab file
@@ -128,11 +128,6 @@ service audiod /system/bin/audiod
    class late_start
    user system
    group system
-
-service swapping /system/bin/sh /system/etc/enable_swap.sh
-    class core
-    user root
-    oneshot
 
 service adsprpcd /system/bin/adsprpcd
    class main
