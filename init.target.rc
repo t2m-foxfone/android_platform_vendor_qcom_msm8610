@@ -162,3 +162,11 @@ on property:init.svc.surfaceflinger=stopped
 
 on property:init.svc.surfaceflinger=running
     start ppd
+
+#Added by weijin.wen@t2mobile.com, recovery & modem version showed in *#3228#,Start
+service mverproxy /system/bin/mverproxy
+   class late_start
+   user root
+   group root
+   oneshot
+#Added by weijin.wen@t2mobile.com, recovery & modem version showed in *#3228#,End

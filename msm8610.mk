@@ -47,6 +47,10 @@ PRODUCT_COPY_FILES += \
     device/qcom/msm8610/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
     device/qcom/msm8610/WCNSS_qcom_wlan_nv.bin:persist/WCNSS_qcom_wlan_nv.bin
 
+#Added by weijin.wen@t2mobile.com ,add recovery & modem version showed in *#3228#,start
+PRODUCT_PACKAGES += mverproxy
+#End: Added by weijin.wen@t2mobile.com ,add recovery & modem version showed in *#3228#
+
 #ANT stack
 PRODUCT_PACKAGES += \
     AntHalService \
