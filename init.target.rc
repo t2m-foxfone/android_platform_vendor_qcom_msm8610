@@ -64,6 +64,8 @@ on boot
 on post-fs-data
     mkdir /data/tombstones 0771 system system
     mkdir /tombstones/modem 0771 system system
+	#for load imei/wifi/bt mac
+	mkdir /data/param
 
 # Allow usb charging to be disabled persistently
 on property:persist.usb.chgdisabled=1
@@ -146,6 +148,14 @@ service ppd /system/bin/mm-pp-daemon
     user system
     socket pps stream 0660 system system
     group system graphics
+
+#[BUGFIX]-Add-BEGIN by shiqian.zhou@t2mobile.com
+service trace_util /system/bin/trace_util
+   class late_start
+   user root
+   group root
+   oneshot
+#[BUGFIX]-Add-END
 
 on property:init.svc.surfaceflinger=stopped
     stop ppd

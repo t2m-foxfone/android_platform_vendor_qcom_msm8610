@@ -35,6 +35,11 @@ PRODUCT_PACKAGES += \
 # Bluetooth configuration files
 #PRODUCT_COPY_FILES += \
     system/bluetooth/data/main.le.conf:system/etc/bluetooth/main.conf
+#add by shiqian.zhou@t2mobile.com for trace_util
+PRODUCT_PACKAGES += trace_util
+PRODUCT_PACKAGES += libtraceability
+#add by shiqian.zhou@t2mobile.com
+
 
 #fstab.qcom
 PRODUCT_PACKAGES += fstab.qcom
