@@ -1,5 +1,5 @@
 TARGET_USES_QCOM_BSP := true
-TARGET_USES_QCA_NFC := other
+TARGET_USES_QCA_NFC := true
 
 ifeq ($(TARGET_USES_QCOM_BSP), true)
 # Add QC Video Enhancements flag
@@ -82,7 +82,7 @@ PRODUCT_COPY_FILES += \
 
 # NFC packages
 ifeq ($(TARGET_USES_QCA_NFC),true)
-NFC_D := true
+NFC_D := false
 
 ifeq ($(NFC_D), true)
     PRODUCT_PACKAGES += \
@@ -103,19 +103,31 @@ else
     PRODUCT_PACKAGES += \
     libnfc-nci \
     libnfc_nci_jni \
-    nfc_nci.msm8610 \
+    nfc_nci.pn54x.default \
     NfcNci \
     Tag \
     com.android.nfc_extras
+endif
+# NFCEE access control
+ifeq ($(TARGET_BUILD_VARIANT),user)
+	NFCEE_ACCESS_PATH := device/qcom/$(TARGET_PRODUCT)/nfc/nfcee_access.xml
+else
+	NFCEE_ACCESS_PATH := device/qcom/$(TARGET_PRODUCT)/nfc/nfcee_access_debug.xml
 endif
 
 # file that declares the MIFARE NFC constant
 # Commands to migrate prefs from com.android.nfc3 to com.android.nfc
 # NFC access control + feature files + configuration
 PRODUCT_COPY_FILES += \
+        packages/apps/Nfc/migrate_nfc.txt:system/etc/updatecmds/migrate_nfc.txt \
         frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml \
         frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
-        frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml
+        frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml\
+        frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/etc/permissions/android.hardware.nfc.hce.xml \
+        $(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml \
+        external/libnfc-nci/halimpl/pn547/libnfc-nxp.conf:system/etc/libnfc-nxp.conf \
+        external/libnfc-nci/halimpl/pn547/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
+        external/libnfc-nci/halimpl/pn547/libpn547_fw.so:system/vendor/firmware/libpn547_fw.so 
 
 # Enable NFC Forum testing by temporarily changing the PRODUCT_BOOT_JARS
 # line has to be in sync with build/target/product/core_base.mk
