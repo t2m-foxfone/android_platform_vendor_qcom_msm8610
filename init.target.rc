@@ -170,3 +170,10 @@ service mverproxy /system/bin/mverproxy
    group root
    oneshot
 #Added by weijin.wen@t2mobile.com, recovery & modem version showed in *#3228#,End
+
+#[FEATURE]-Add-BEGIN by T2M.weiqing.cao,01/20/2015,CR-908228,retrofit
+service factory_test /system/bin/factory_test
+   class late_start
+   user root
+   group root
+#[FEATURE]-Add-END by T2M.weiqing.cao

@@ -63,6 +63,11 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += wcnss_service
 
+#[FEATURE]-Add-BEGIN by T2M.weiqing.cao,01/20/2015,CR-908228,retrofit
+PRODUCT_PACKAGES += \
+    factory_test
+#[FEATURE]-Add-END by T2M.weiqing.cao
+
 # Sensors feature definition file/s
 PRODUCT_COPY_FILES += \
    frameworks/native/data/etc/android.hardware.sensor.barometer.xml:system/etc/permissions/android.hardware.sensor.barometer.xml
