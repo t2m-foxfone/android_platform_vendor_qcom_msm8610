@@ -151,6 +151,11 @@ audio.offload.gapless.enabled=true
 # System prop for Atlas service
 config.disable_atlas=true
 
+#Feature Add_Begin by T2M-XCM 30/12/2014 PR:914327 enable android virtual key 
+# enable navigation bar
+qemu.hw.mainkeys=0
+#Feature Add_End by T2M-XCM 
+
 #additional max allowed background services on bootup
 persist.added_boot_bgservices=4
 
