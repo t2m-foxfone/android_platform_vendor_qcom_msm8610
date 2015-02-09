@@ -120,6 +120,13 @@ else
 	NFCEE_ACCESS_PATH := device/qcom/$(TARGET_PRODUCT)/nfc/nfcee_access_debug.xml
 endif
 
+
+#add custom app filemanager
+
+PRODUCT_PACKAGES += \
+  TctFileManager
+
+
 # file that declares the MIFARE NFC constant
 # Commands to migrate prefs from com.android.nfc3 to com.android.nfc
 # NFC access control + feature files + configuration
